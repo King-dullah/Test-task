@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           $diff = $date1->diff($date2)->format('%m');
           $year = $date1->diff($date2)->format('%y');
 
-          $result = $mysqli->query('SELECT * FROM clothes WHERE product_price=10000.00')or die($mysqli->error);
+          $result = $mysqli->query('SELECT * FROM clothes WHERE product_id=1')or die($mysqli->error);
           $data = $result->fetch_assoc();
 
 
@@ -24,33 +24,33 @@ if($year < 1){
 if($diff  < 2){
           $newprice = $data['product_price'] - (0.5 *$data['product_price']  );
           $_SESSION['price'] = $newprice;
-          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_price=10000.00');
+          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_id=1');
           header("location: index.php");
 }elseif($diff < 4){
           $newprice = $data['product_price'] + (0.5 *$data['product_price']  );
           $_SESSION['price'] = $newprice;
-          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_price=10000.00');
+          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_id=1');
           header("location: index.php");
 }elseif($diff < 6){
           $newprice = $data['product_price'] * 2;
           $_SESSION['price'] = $newprice;
-          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_price=10000.00');
+          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_id=1');
           header("location: index.php");;
 }elseif($diff <=8){
           $newprice = $data['product_price'] + (0.2 *$data['product_price']  );
           $_SESSION['price'] = $newprice;
-          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_price=10000.00');
+          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_id=1');
           header("location: index.php");;
 }elseif($diff < 12){
           $newprice = $data['product_price'] - (0.2 *$data['product_price']  );
           $_SESSION['price'] = $newprice;
-          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_price=10000.00');
+          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_id=1');
           header("location: index.php");;
 }
 }else{
           $newprice = $data['product_price'] - (0.2 *$data['product_price']  );
           $_SESSION['price'] = $newprice;
-          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_price=10000.00');
+          $mysqli->query('UPDATE clothes SET product_price="$newprice" WHERE product_id=1');
           header("location: index.php");;
 }
 
